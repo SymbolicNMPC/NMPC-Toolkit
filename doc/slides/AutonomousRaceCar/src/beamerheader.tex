@@ -1,0 +1,36 @@
+% Macros
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\TR}{\text{T}}
+\newcommand{\CO}{\text{conv}}
+
+% Theme
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent}
+
+% Colors
+\definecolor{MapleBlue}{RGB}{1, 134, 190}
+\usecolortheme{orchid}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{author}{fg=MapleBlue}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{block title}{fg=white, bg=MapleBlue}
+  
+% Fonts
+\setbeamerfont{date}{size=\fontsize{8pt}{9pt}}
+	
+% Custom title page
+
+\setbeamertemplate{title page}
+{
+
+    \bigskip
+	\bigskip
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\par
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\par
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\par
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}\par
+
+}
+
+\usebackgroundtemplate{\includegraphics[height=\paperheight,width=\paperwidth]{img/MapleBackground.png}}

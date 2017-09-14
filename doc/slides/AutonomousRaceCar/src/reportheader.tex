@@ -1,0 +1,107 @@
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsthm}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage{datetime}
+\usepackage{colortbl}
+\usepackage{cite}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{multirow}
+\usepackage{bbding}
+\usepackage{array}
+\usepackage{lscape}
+\usepackage{longtable}
+\usepackage{subfig}
+\usepackage{pgfgantt}
+
+\ifxetex
+  \usepackage{titlesec}
+  \usepackage{unicode-math}
+  % Define light and dark Microsoft blue colours
+  \definecolor{MSBlue}{rgb}{.204,.353,.541}
+  \definecolor{MSLightBlue}{rgb}{.31,.506,.741}
+  % Define a new fontfamily for the subsubsection font
+  % Don't use \fontspec directly to change the font
+  \newfontfamily\subsubsectionfont[Color=MSLightBlue]{Times New Roman}
+  % Set formats for each heading level
+  \titleformat*{\section}{\Large\bfseries\sffamily\color{MSBlue}}
+  \titleformat*{\subsection}{\large\bfseries\sffamily\color{MSLightBlue}}
+  \titleformat*{\subsubsection}{\itshape\subsubsectionfont}
+\fi
+
+\definecolor{lgray}{gray}{0.8}
+
+\usepackage{url}
+\hypersetup{
+            colorlinks,%
+            citecolor=black,%
+            filecolor=black,%
+            linkcolor=blue,%
+            urlcolor=black
+                          }
+\allowdisplaybreaks[1]
+
+\usepackage{etoolbox}
+
+\captionsetup[subfigure]{labelfont=normalfont,textfont=normalfont}
+
+\newcommand{\Right}[1]{\begin{turn}{-90}#1\end{turn}}
+\newcommand{\Left}[1]{\begin{turn}{90}#1\end{turn}}
+\newcommand{\Red}[1]{{\color{red}#1}}
+
+\DeclareMathOperator{\sat}{sat}
+\DeclareMathOperator{\tr}{tr}
+
+\renewcommand\arraystretch{1.75}
+\newcommand{\eot}{\hfill\mbox{$\rule{2mm}{3mm}$}} 
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\TR}{\text{T}}
+\newcommand{\CO}{\text{conv}}
+\newcommand{\bmat}{\left[\begin{matrix}}
+\newcommand{\emat}{\end{matrix}\right]}
+\newcommand{\bmatp}{\left(\begin{matrix}}
+\newcommand{\ematp}{\end{matrix}\right)}
+\newcommand{\bsmat}{\left[\begin{smallmatrix}}
+\newcommand{\esmat}{\end{smallmatrix}\right]}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\beqs}{\begin{equation*}}
+\newcommand{\eeqs}{\end{equation*}}
+
+\newcommand{\mcmd}[1]{\ensuremath{\text{\color{red}\upshape\ttfamily{#1}}}}
+\def\texttt{\mcmd}
+
+% Environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}{Remark}
+\def\ni{\noindent }
+\newcolumntype{S}{>{\centering\arraybackslash} m{.13\linewidth} }
+
+% Margins
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tolerance=1000
+
+% redefine \ref to replace the space before by a ~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+% from hyperref.sty
+    \def\T@ref#1{%
+\@tempskipa\lastskip%
+\ifdim\@tempskipa>\z@%
+\unskip~%
+\fi%
+      \@safe@activestrue
+      \expandafter\@setref\csname r@#1\endcsname\@firstoffive{#1}%
+      \@safe@activesfalse
+    }%
+\makeatother
