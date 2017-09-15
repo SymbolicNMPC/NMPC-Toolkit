@@ -4,20 +4,12 @@ pckgname := "NMPC Toolkit";
 NMPCT := cat(pckg,".maple");
 PackageTools:-Create(NMPCT);
 PackageTools:-SetProperty(NMPCT, "Author", "Behzad Samadi");
-PackageTools:-GetProperty(NMPCT, "Author");
 PackageTools:-SetProperty(NMPCT, "Item List", "true");
-PackageTools:-GetProperty(NMPCT, "Item List");
 PackageTools:-SetProperty(NMPCT, "X-CloudGroup", "packages");
-PackageTools:-GetProperty(NMPCT, "X-CloudGroup");
 PackageTools:-SetProperty(NMPCT, "X-CloudId", "5086116991467520");
-PackageTools:-GetProperty(NMPCT, "X-CloudId");
 PackageTools:-SetProperty(NMPCT, "X-CloudURL", "https://maple.cloud");
-PackageTools:-GetProperty(NMPCT, "X-CloudURL");
 PackageTools:-SetProperty(NMPCT, "X-CloudVersion", "2");
-PackageTools:-GetProperty(NMPCT, "X-CloudVersion");
 PackageTools:-SetProperty(NMPCT, "X-CloudXId", "behzad.samadi@gmail.com");
-PackageTools:-GetProperty(NMPCT, "X-CloudXId");
-
 
 # Overview
 PackageTools:-AddAttachment(NMPCT, "../doc/Overview.mw");
