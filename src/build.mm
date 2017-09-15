@@ -3,6 +3,10 @@ pckgname := "NMPC Toolkit";
 
 NMPCT := cat(pckg,".maple");
 PackageTools:-Create(NMPCT);
+PackageTools:-SetProperty(NMPCT, "X-CloudVersion", "2");
+PackageTools:-SetProperty(NMPCT, "X-CloudId", "5086116991467520");
+PackageTools:-SetProperty(NMPCT, "X-CloudXId", "behzad.samadi@gmail.com");
+
 
 # Overview
 PackageTools:-AddAttachment(NMPCT, "../doc/Overview.mw");
