@@ -23,3 +23,10 @@ Simulating the Closed Loop System: The generated C code can be embedded in a Map
 - Go to [here](https://maple.cloud/#doc=5086116991467520) on [maple.cloud](https://maple.cloud)
 - Download the package
 - Execute the overview worksheet in Maple 2017 or later
+
+## From this repository
+- git clone https://github.com/SymbolicNMPC/NMPC-Toolkit.git
+- cd NMPC-Toolkit\src
+- build
+- cd ..\install
+- install
