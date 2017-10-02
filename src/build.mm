@@ -8,7 +8,6 @@ PackageTools:-SetProperty(NMPCT, "Item List", "true");
 PackageTools:-SetProperty(NMPCT, "X-CloudGroup", "packages");
 PackageTools:-SetProperty(NMPCT, "X-CloudId", "5086116991467520");
 PackageTools:-SetProperty(NMPCT, "X-CloudURL", "https://maple.cloud");
-PackageTools:-SetProperty(NMPCT, "X-CloudVersion", "2");
 PackageTools:-SetProperty(NMPCT, "X-CloudXId", "behzad.samadi@gmail.com");
 
 # Overview
