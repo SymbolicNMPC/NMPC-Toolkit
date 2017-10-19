@@ -112,7 +112,7 @@ Hamiltonian := proc(SLP         :: list,
         muv  := `<,>`(seq(`tools/genglobal`(cat('mu',i)), i = 1 .. dimc));
 
         # Constraints
-        cvec := eval(Vector(constraints), [seq(states=~xvec),seq(inputs=~uvec)]);
+        cvec := eval(Vector(constraints), [seq(states=~xvec),seq(inputs=~uvec),seq(extputs=~wvec)]);
         Cxu  := Vector([seq(sgmv[i]^2+cvec[i], i = 1 .. dimc)]);
 
         # Hamiltonian with constraints
