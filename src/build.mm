@@ -48,31 +48,31 @@ helpfile := cat(pckg, ".help");
 
 HelpTools:-Database:-Create( helpfile );
 
-# MPCDesignTools
+# NMPC Toolkit
 makehelp(cat(pckg,"/Overview"),
-         cat("../doc/help/MPCDesignToolsOverview.mw"),
+         cat("../doc/help/NMPCToolkitOverview.mw"),
          helpfile,
          browser = [pckgname,"Overview"] );
 
 # Linear System
-makehelp( cat(pckgname,"/LinearSystem"),
+makehelp( cat(pckg,"/LinearSystem"),
           cat("../doc/examples/LinearSystems/LinearSystem.mw"),
           helpfile,
           browser = [pckgname,"Examples","Linear System"] );
 
-makehelp( cat(pckgname,"/LinearSystemExtputs"),
+makehelp( cat(pckg,"/LinearSystemExtputs"),
           cat("../doc/examples/LinearSystems/LinearSystemExtputs.mw"),
           helpfile,
           browser = [pckgname,"Examples","Linear System with External Inputs"] );
 
 # ElectrohydraulicServoSystem
-makehelp( cat(pckgname,"/ElectrohydraulicServoSystem"),
+makehelp( cat(pckg,"/ElectrohydraulicServoSystem"),
           cat("../doc/examples/ElectroHydraulicServoSystem/ElectrohydraulicServoSystem.mw"),
           helpfile,
           browser = [pckgname,"Examples","Electrohydraulic Servo System"] );
 
 # Autonomous Race Car
-makehelp( cat(pckgname,"/AutonomousRaceCar"),
+makehelp( cat(pckg,"/AutonomousRaceCar"),
           cat("../doc/examples/AutonomousRaceCar/AutonomousRaceCar.mw"),
           helpfile,
           browser = [pckgname,"Examples","Autonomous Race Car"] );

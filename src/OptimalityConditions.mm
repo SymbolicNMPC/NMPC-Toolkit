@@ -159,18 +159,18 @@ OptimalityConditions := proc(SLP         :: list,
     LH := Vector((N+1)*dimx, symbol = lambda); # Vector for costate vectors
     XD := Vector(dimx, symbol = xd);           # Desired state vector
     UD := Vector(dimu, symbol = ud);           # Desired input vector
-    SH:=Vector(N*dimc, symbol = sigma);        # Vector of slack variables
-    MH:=Vector(N*dimc, symbol = mu);           # Vector of Lagrange multipliers
+    SH := Vector(N*dimc, symbol = sigma);      # Vector of slack variables
+    MH := Vector(N*dimc, symbol = mu);         # Vector of Lagrange multipliers
 
     # Straight line program for one step costate update
     opSLP:=convert(<seq(output[i],i=1..dimx)> =~ <seq(lambda[i],i=1..dimx)>
                        +(Tp/N)*Vector[column](Hx(seq(x[i], i = 1 .. dimx),
                                                  seq(u[i], i = 1 .. dimu),
-						       seq(w[i], i = 1 .. dimw),
+						             seq(w[i], i = 1 .. dimw),
                                                  seq(XD),
                                                  seq(UD),
                                                  seq(lambda[i], i = 1 .. dimx),
-				     		       seq(sigma[i], i = 1 .. dimc),
+				     		             seq(sigma[i], i = 1 .. dimc),
                                                  seq(mu[i], i = 1 .. dimc))),list);
 
     opSLP:=[codegen:-optimize(opSLP)];
@@ -187,26 +187,26 @@ OptimalityConditions := proc(SLP         :: list,
 
     # N step costate update
     CostateUpdate := [seq(LH[dimx*N+1..-1]=~phix(seq(XH[dimx*N+1..-1]),
-                         seq(XD))),
+                           seq(XD))),
 	                     seq(op(Update(LH[dimx*(i-1)+1 .. i*dimx],
-   		                            XH[dimx*(i-1)+1 .. i*dimx],
-				    	       UH[dimu*(i-1)+1 .. i*dimu],
-					       WH,
-					       LH[dimx*i+1 .. (i+1)*dimx],
-					       SH[dimc*(i-1)+1 .. i*dimc],
-                                          MH[dimc*(i-1)+1 .. i*dimc], i)),
-                                          i = N..1, -1)];
+   		                             XH[dimx*(i-1)+1 .. i*dimx],
+				    	           UH[dimu*(i-1)+1 .. i*dimu],
+					           WH,
+					           LH[dimx*i+1 .. (i+1)*dimx],
+					           SH[dimc*(i-1)+1 .. i*dimc],
+                                         MH[dimc*(i-1)+1 .. i*dimc], i)),
+                                         i = N..1, -1)];
 
     # Straight line program for computing H_u, the partial derivative
     # of the Hamiltonian with respect to U
     opSLP:=[seq(output[i],i=1..dimu+2*dimc)] =~ convert(Hu(seq(x[i], i = 1 .. dimx),
                              seq(u[i], i = 1 .. dimu),
-				 seq(w[i], i = 1 .. dimw),
+				     seq(w[i], i = 1 .. dimw),
                              seq(XD),
                              seq(UD),
                              seq(lambda[i], i = 1 .. dimx),
-				 seq(sigma[i], i = 1 .. dimc),
-				 seq(mu[i], i = 1 .. dimc)), list);
+				     seq(sigma[i], i = 1 .. dimc),
+				     seq(mu[i], i = 1 .. dimc)), list);
     kx := kx+k;
     IV,result := IntermediateVariablesResult(opSLP);
     k := numelems(IV);
@@ -224,8 +224,8 @@ OptimalityConditions := proc(SLP         :: list,
 			  WH,
 			  LH[dimx*i+1 .. (i+1)*dimx],
 			  SH[dimc*(i-1)+1 .. i*dimc],
-                       MH[dimc*(i-1)+1 .. i*dimc], i)),
-                       i = 1 .. N)];
+                    MH[dimc*(i-1)+1 .. i*dimc], i)),
+                    i = 1 .. N)];
 
     nU := N*(dimu+2*dimc); # Number of elements of U
 
@@ -273,8 +273,8 @@ OptimalityConditions := proc(SLP         :: list,
 
     bP := codegen:-makeproc(bvecSLP,
              ':-parameters' = [x0::Vector, Uvec::Vector, w::Vector,
-		                 xdot::Vector, xd::Vector, ud::Vector,
-		                 out::Vector, Tp::numeric],
+		                   xdot::Vector, xd::Vector, ud::Vector,
+		                   out::Vector, Tp::numeric],
              ':-locals' = [seq(X1vec), seq(lmd1vec), seq(zi1vec),
                            seq(X2vec), seq(lmd2vec), seq(zi2vec),
                            seq(OC1vec), seq(OC2vec)]);
@@ -287,8 +287,8 @@ OptimalityConditions := proc(SLP         :: list,
 				 seq(out[i]=(OC2[i]-OC1[i])/h,i=1..nU)];
 
     FUSLP := eval(FUSLP,[zi1=zi1vec,zi2=zi2vec,lambda1=lmd1vec,
-                            lambda2=lmd2vec,X1=X1vec,X2=X2vec,
-                            OC1=OC1vec,OC2=OC2vec]);
+                         lambda2=lmd2vec,X1=X1vec,X2=X2vec,
+                         OC1=OC1vec,OC2=OC2vec]);
 
     # Make an optimized procedure to compute the left hand side of
     # the cGMRES equation

@@ -27,9 +27,8 @@ export LinearizeSystem,
        MPCtrl,
        MPCSimulation,
        GenerateC,
-       MakeProcedure;
-
-local  Hamiltonian,
+       MakeProcedure,
+       Hamiltonian,
        IntermediateVariablesResult,
        RemoveParam,
        GetParam;

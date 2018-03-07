@@ -125,7 +125,7 @@ Hamiltonian := proc(SLP         :: list,
 
    	    sgmv := <NULL>; # Slack variables
    	    muv  := <NULL>; # Lagrangian multipliers corresponding to constraints
-          uv := uvec;     # U in the MPC report
+        uv := uvec;     # U in the MPC report
 
     end if;
 
